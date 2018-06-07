@@ -24,9 +24,9 @@ class YiiMorphy extends Component
      */
     public $morphy;
     /**
-     * @var string Language
+     * @var string Language, default is 'ru'.
      */
-    public $language;
+    public $language = 'ru';
     /**
      * @var array Options for phpMorphy constructor
      */
@@ -44,21 +44,18 @@ class YiiMorphy extends Component
 
     /**
      * Morphy constructor.
-     * @param string $language
-     * @param array $options
      * @param array $config
      */
-    public function __construct($language = 'ru', array $options = [], array $config = [])
+    public function __construct(array $config = [])
     {
-        if (!in_array($language, array_keys(self::$dictionaries))) {
+        parent::__construct($config);
+
+        if (!in_array($this->language, array_keys(self::$dictionaries))) {
             throw new InvalidArgumentException(
                 '$language param must be one of the following: ' . implode(', ', array_keys(self::$dictionaries))
             );
         }
-        $this->language = self::$dictionaries[$language];
-        $options = ArrayHelper::merge($this->options, $options);
-        $this->morphy = new \phpMorphy(null, $this->language, $options);
-
-        parent::__construct($config);
+        $options = ArrayHelper::merge($this->options, $this->options);
+        $this->morphy = new \phpMorphy(null, self::$dictionaries[$this->language], $options);
     }
 }
