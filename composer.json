@@ -1,0 +1,41 @@
+{
+    "name": "maxodrom/yii2-phpmorphy",
+    "description": "Yii2 PHPMorphy component",
+    "keywords": ["yii2", "SEO"],
+    "homepage": "https://github.com/maxodrom/yii2-phpmorphy",
+    "type": "project",
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/maxodrom/yii2-phpmorphy/issues?state=open",
+        "wiki": "https://github.com/maxodrom/yii2-phpmorphy/wiki",
+        "source": "https://github.com/maxodrom/yii2-phpmorphy"
+    },
+    "authors": [
+        {
+            "name": "Max Alexandrov",
+            "email": "max@7u3.ru"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "yiisoft/yii2": "~2.0.0",
+        "maxakawizard/phpmorphy": "~1.0"
+    },
+    "require-dev": {
+        "codeception/codeception": "~2.0",
+        "codeception/specify": "~1.1",
+        "codeception/verify": "~1.0",
+        "phpunit/phpunit": "^7.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "maxodrom\\phpmorphy\\": "src/"
+        }
+    },
+    "extra": {
+        "asset-installer-paths": {
+            "npm-asset-library": "vendor/npm",
+            "bower-asset-library": "vendor/bower"
+        }
+    }
+}
